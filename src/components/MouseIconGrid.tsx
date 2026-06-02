@@ -99,7 +99,7 @@ export const MouseIconGrid = () => {
         return (
           <div
             key={i}
-            ref={(el) => (itemsRef.current[i] = el)}
+            ref={(el) => { itemsRef.current[i] = el; }}
             className="absolute transition-none opacity-0"
             style={{
               left: `${(i % gridSize.cols) * 55 + 25}px`,

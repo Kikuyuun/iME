@@ -39,14 +39,14 @@ export const About = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 100, damping: 12 }
+      transition: { type: "spring" as const, stiffness: 100, damping: 12 }
     }
   };
 
   const cardHover = {
     y: -5,
     scale: 1.01,
-    transition: { type: "spring", stiffness: 400, damping: 25 }
+    transition: { type: "spring" as const, stiffness: 400, damping: 25 }
   };
 
   return (
