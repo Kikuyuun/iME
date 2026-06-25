@@ -74,7 +74,7 @@ export const SuggestionBox = () => {
                   ✕
                 </button>
               </div>
-              <p className="text-slate-400 text-xs mt-1">Help me improve! Share your ideas.</p>
+              <p className="text-slate-500 text-xs mt-1">Help me improve! Share your ideas.</p>
             </div>
 
             <form onSubmit={handleSubmit} className="p-5 space-y-4">

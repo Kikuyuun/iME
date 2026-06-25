@@ -262,13 +262,55 @@ export const Skills = () => {
           ))}
         </div>
 
+        {/* Mobile/Tablet Skills Grid */}
+        <motion.div
+          key={`grid-${activeCat}`}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="grid grid-cols-2 gap-3 md:hidden mt-8 max-w-sm mx-auto z-20 relative"
+        >
+          {category.skills.map((skill) => (
+            <motion.div
+              key={skill.name}
+              whileHover={{ scale: 1.02 }}
+              className="flex items-center gap-2.5 bg-white border border-slate-200 p-3 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300"
+              style={{
+                borderColor: 'rgba(226, 232, 240, 1)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = skill.color + '40';
+                e.currentTarget.style.boxShadow = `0 4px 15px ${skill.color}10`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(226, 232, 240, 1)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <div className="w-8 h-8 rounded-full flex items-center justify-center bg-slate-50 shrink-0 border border-slate-100">
+                {skill.icon}
+              </div>
+              <div className="flex flex-col min-w-0">
+                <span className="text-xs font-bold text-slate-700 truncate">{skill.name}</span>
+                <span className="text-[8px] font-bold tracking-wider uppercase mt-0.5"
+                  style={{
+                    color: skill.level === 'Advanced' ? '#2563eb' :
+                      skill.level === 'Proficient' ? '#059669' : '#94a3b8'
+                  }}>
+                  {skill.level}
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
         {/* Orbit Area */}
         <motion.div
           key={activeCat}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, type: 'spring', bounce: 0.4 }}
-          className="relative w-full max-w-[320px] h-[320px] md:max-w-[460px] md:h-[460px] mx-auto mt-24 md:mt-32 mb-8 md:mb-12"
+          className="hidden md:block relative w-full max-w-[460px] h-[460px] mx-auto mt-32 mb-12"
         >
           {/* Aesthetic Orbit Rings */}
           <motion.div
