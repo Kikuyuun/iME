@@ -79,7 +79,7 @@ export const Hero = () => {
         className="absolute inset-0 origin-top" 
         style={{ 
           y: yGrid,
-          backgroundImage: 'linear-gradient(rgba(56,189,248,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.04) 1px, transparent 1px)', 
+          backgroundImage: 'linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px)', 
           backgroundSize: '80px 80px' 
         }} 
       />
@@ -90,7 +90,7 @@ export const Hero = () => {
           animate={{ y: [0, 50, 0], x: [0, 30, 0] }} 
           transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
           className="w-full h-full rounded-full" 
-          style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%)', filter: 'blur(60px)' }} 
+          style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%)', filter: 'blur(60px)' }} 
         />
       </motion.div>
       
@@ -99,7 +99,7 @@ export const Hero = () => {
           animate={{ y: [0, -40, 0], x: [0, -25, 0] }} 
           transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
           className="w-full h-full rounded-full" 
-          style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%)', filter: 'blur(60px)' }} 
+          style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.07) 0%, transparent 70%)', filter: 'blur(60px)' }} 
         />
       </motion.div>
 
@@ -114,26 +114,26 @@ export const Hero = () => {
             <motion.div 
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
-              className="relative w-full rounded-3xl overflow-hidden flex items-end justify-center shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] border border-white/10 backdrop-blur-md cursor-pointer group"
+              className="relative w-full rounded-3xl overflow-hidden flex items-end justify-center shadow-[0_8px_32px_0_rgba(0,0,0,0.08)] border border-slate-200/80 backdrop-blur-md cursor-pointer group"
               style={{
                 y: yImage,
                 rotateX,
                 rotateY,
                 transformStyle: "preserve-3d",
-                background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.4) 0%, rgba(255, 255, 255, 0.03) 100%)',
+                background: 'linear-gradient(135deg, rgba(248,250,252,0.8) 0%, rgba(255,255,255,0.4) 100%)',
               }}
             >
               {/* Dynamic Glare Overlay */}
               <motion.div 
                 className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-50 mix-blend-overlay"
                 style={{
-                  background: useMotionTemplate`radial-gradient(circle 250px at ${glowX}px ${glowY}px, rgba(255,255,255,0.2), transparent)`
+                  background: useMotionTemplate`radial-gradient(circle 250px at ${glowX}px ${glowY}px, rgba(59,130,246,0.12), transparent)`
                 }}
               />
               
               {/* Backlight orb */}
-              <div className="absolute top-1/4 w-40 h-40 rounded-full bg-cyan-500/10 blur-3xl animate-pulse z-0" />
-              <div className="absolute bottom-1/4 w-40 h-40 rounded-full bg-blue-500/10 blur-3xl animate-pulse z-0" />
+              <div className="absolute top-1/4 w-40 h-40 rounded-full bg-cyan-500/5 blur-3xl animate-pulse z-0" />
+              <div className="absolute bottom-1/4 w-40 h-40 rounded-full bg-blue-500/5 blur-3xl animate-pulse z-0" />
               <img 
                 src={EduardMain} 
                 alt="Eduard James Alvarez" 
@@ -147,29 +147,29 @@ export const Hero = () => {
           <motion.div style={{ y: yText }} className="md:col-span-7 flex flex-col items-center text-center w-full">
             {/* Badge */}
             <motion.div variants={item} className="mb-6">
-              <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-cyan-300" style={{ background: 'rgba(6,182,212,0.08)', border: '1px solid rgba(6,182,212,0.25)' }}>
-                <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-blue-600" style={{ background: 'rgba(59,130,246,0.06)', border: '1px solid rgba(59,130,246,0.15)' }}>
+                <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
                 Open to Opportunities
               </span>
             </motion.div>
 
             {/* Name */}
             <motion.h1 variants={item} className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-5 tracking-tight leading-tight">
-              <span className="text-white">Eduard James</span>
+              <span className="text-slate-800">Eduard James</span>
               <br />
-              <span style={{ background: 'linear-gradient(135deg, #38bdf8, #06b6d4, #3b82f6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] via-[#06b6d4] to-[#2563eb]">
                 Alvarez
               </span>
             </motion.h1>
 
             {/* Typewriter */}
             <motion.div variants={item} className="flex items-center gap-1 mb-5 h-8">
-              <span className="text-lg md:text-xl text-slate-400 font-medium">{displayed}</span>
-              <motion.span animate={{ opacity: [1, 0, 1] }} transition={{ duration: 0.7, repeat: Infinity }} className="w-0.5 h-6 bg-cyan-400 rounded-full" />
+              <span className="text-lg md:text-xl text-slate-600 font-medium">{displayed}</span>
+              <motion.span animate={{ opacity: [1, 0, 1] }} transition={{ duration: 0.7, repeat: Infinity }} className="w-0.5 h-6 bg-blue-500 rounded-full" />
             </motion.div>
 
             {/* Summary */}
-            <motion.p variants={item} className="text-base text-slate-400 mb-8 max-w-xl leading-relaxed">
+            <motion.p variants={item} className="text-base text-slate-600 mb-8 max-w-xl leading-relaxed">
               Motivated and detail-oriented IT student eager to apply technical knowledge,
               contribute to innovative projects, and continuously grow in a dynamic work environment.
             </motion.p>
@@ -184,8 +184,8 @@ export const Hero = () => {
               </motion.button>
               <motion.button whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.97 }}
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="px-8 py-3 rounded-xl text-sm font-semibold text-cyan-300 cursor-pointer"
-                style={{ background: 'rgba(6,182,212,0.08)', border: '1px solid rgba(6,182,212,0.3)' }}>
+                className="px-8 py-3 rounded-xl text-sm font-semibold text-blue-600 cursor-pointer backdrop-blur-md"
+                style={{ background: 'rgba(255, 255, 255, 0.7)', border: '1px solid rgba(59, 130, 246, 0.2)', WebkitBackdropFilter: 'blur(8px)' }}>
                 Get In Touch
               </motion.button>
             </motion.div>
@@ -194,8 +194,8 @@ export const Hero = () => {
 
         {/* Scroll Indicator */}
         <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 2.5, repeat: Infinity }} className="text-center mt-12 md:mt-6">
-          <p className="text-slate-600 text-xs tracking-widest uppercase mb-2">Scroll</p>
-          <svg className="w-4 h-4 mx-auto text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <p className="text-slate-500 text-xs tracking-widest uppercase mb-2">Scroll</p>
+          <svg className="w-4 h-4 mx-auto text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </motion.div>

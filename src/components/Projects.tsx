@@ -86,16 +86,16 @@ const FeaturedTiltCard = ({ featured }: { featured: typeof projects[0] }) => {
           rotateX,
           rotateY,
           transformStyle: "preserve-3d",
-          background: 'rgba(15,23,42,0.6)', 
-          border: `1px solid ${featured.accent}30`
+          background: 'rgba(255,255,255,0.9)', 
+          border: `1px solid ${featured.accent}20`
         }}
-        className="rounded-2xl relative overflow-hidden group cursor-default shadow-2xl"
+        className="rounded-2xl relative overflow-hidden group cursor-default shadow-lg shadow-slate-200/50"
       >
         {/* Dynamic Glare */}
         <motion.div 
-          className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 mix-blend-screen"
+          className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 mix-blend-multiply"
           style={{
-            background: useMotionTemplate`radial-gradient(circle 350px at ${glowX}px ${glowY}px, ${featured.accent}20, transparent)`
+            background: useMotionTemplate`radial-gradient(circle 350px at ${glowX}px ${glowY}px, ${featured.accent}08, transparent)`
           }}
         />
 
@@ -103,37 +103,37 @@ const FeaturedTiltCard = ({ featured }: { featured: typeof projects[0] }) => {
         <div className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl z-10" style={{ background: `linear-gradient(90deg, ${featured.accent}, #06b6d4)` }} />
 
         {/* Corner glow */}
-        <div className="absolute top-0 right-0 w-64 h-64 pointer-events-none opacity-10 z-10" style={{ background: `radial-gradient(circle at 100% 0%, ${featured.accent}, transparent 70%)` }} />
+        <div className="absolute top-0 right-0 w-64 h-64 pointer-events-none opacity-5 z-10" style={{ background: `radial-gradient(circle at 100% 0%, ${featured.accent}, transparent 70%)` }} />
 
         <div className="relative p-8 md:p-10 z-20" style={{ transform: "translateZ(30px)" }}>
           <div className="grid md:grid-cols-5 gap-8 items-start">
             {/* Left: info */}
             <div className="md:col-span-3">
               <div className="flex items-center gap-3 mb-2">
-                <span className="text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wider" style={{ color: featured.accent, background: `${featured.accent}15`, border: `1px solid ${featured.accent}30` }}>
+                <span className="text-xs font-bold px-3 py-1 rounded-md uppercase tracking-wider" style={{ color: featured.accent, background: `${featured.accent}08`, border: `1px solid ${featured.accent}20` }}>
                   ★ Featured
                 </span>
-                <span className="text-xs font-medium px-3 py-1 rounded-md" style={{ color: '#06b6d4', background: 'rgba(6,182,212,0.1)', border: '1px solid rgba(6,182,212,0.2)' }}>
+                <span className="text-xs font-medium px-3 py-1 rounded-md" style={{ color: '#0891b2', background: 'rgba(6,182,212,0.06)', border: '1px solid rgba(6,182,212,0.15)' }}>
                   {featured.tag}
                 </span>
               </div>
 
               <div className="flex items-center gap-4 mb-4 mt-4">
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl" style={{ background: `${featured.accent}12`, border: `1px solid ${featured.accent}20` }}>
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl" style={{ background: `${featured.accent}08`, border: `1px solid ${featured.accent}15` }}>
                   {featured.icon}
                 </div>
                 <div>
-                  <h3 className="text-white font-bold text-2xl md:text-3xl tracking-tight">{featured.title}</h3>
-                  <p className="text-slate-500 text-sm">{featured.subtitle}</p>
+                  <h3 className="text-slate-800 font-bold text-2xl md:text-3xl tracking-tight">{featured.title}</h3>
+                  <p className="text-slate-400 text-sm">{featured.subtitle}</p>
                 </div>
               </div>
 
-              <p className="text-slate-400 text-sm leading-relaxed mb-6">{featured.description}</p>
+              <p className="text-slate-500 text-sm leading-relaxed mb-6">{featured.description}</p>
 
               {/* Tech */}
               <div className="flex flex-wrap gap-2">
                 {featured.tech.map((t, i) => (
-                  <span key={i} className="px-3 py-1.5 text-xs font-medium rounded-lg text-slate-300" style={{ background: `${featured.accent}10`, border: `1px solid ${featured.accent}25` }}>
+                  <span key={i} className="px-3 py-1.5 text-xs font-medium rounded-lg text-slate-600" style={{ background: `${featured.accent}06`, border: `1px solid ${featured.accent}15` }}>
                     {t}
                   </span>
                 ))}
@@ -142,18 +142,18 @@ const FeaturedTiltCard = ({ featured }: { featured: typeof projects[0] }) => {
 
             {/* Right: highlights */}
             <div className="md:col-span-2">
-              <div className="p-5 rounded-xl shadow-lg" style={{ background: 'rgba(10,22,40,0.6)', border: '1px solid rgba(51,65,85,0.3)', transform: "translateZ(10px)" }}>
-                <h4 className="text-white text-sm font-semibold mb-4 flex items-center gap-2">
+              <div className="p-5 rounded-xl shadow-sm" style={{ background: 'rgba(248,250,252,0.8)', border: '1px solid rgba(226,232,240,0.6)', transform: "translateZ(10px)" }}>
+                <h4 className="text-slate-700 text-sm font-semibold mb-4 flex items-center gap-2">
                   <span className="w-1 h-4 rounded-full" style={{ background: featured.accent }} />
                   Key Features
                 </h4>
                 <div className="space-y-3">
                   {featured.highlights?.map((h, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <span className="w-5 h-5 rounded-md flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold" style={{ background: `${featured.accent}15`, color: featured.accent }}>
+                      <span className="w-5 h-5 rounded-md flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold" style={{ background: `${featured.accent}10`, color: featured.accent }}>
                         {i + 1}
                       </span>
-                      <span className="text-slate-400 text-sm">{h}</span>
+                      <span className="text-slate-500 text-sm">{h}</span>
                     </div>
                   ))}
                 </div>
@@ -208,20 +208,20 @@ const TiltCard = ({ p, delay }: { p: typeof projects[0]; delay: number }) => {
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         whileHover={{ scale: 1.02 }}
-        className="p-6 rounded-xl relative overflow-hidden group cursor-default h-full flex flex-col shadow-xl"
+        className="p-6 rounded-xl relative overflow-hidden group cursor-default h-full flex flex-col shadow-md shadow-slate-200/50"
         style={{
           rotateX,
           rotateY,
           transformStyle: "preserve-3d",
-          background: 'rgba(15,23,42,0.6)',
-          border: `1px solid ${p.accent}25`,
+          background: 'rgba(255,255,255,0.9)',
+          border: `1px solid ${p.accent}15`,
         }}
       >
         {/* Dynamic Glare */}
         <motion.div 
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0 mix-blend-screen"
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0 mix-blend-multiply"
           style={{
-            background: useMotionTemplate`radial-gradient(circle 250px at ${glowX}px ${glowY}px, ${p.accent}15, transparent)`,
+            background: useMotionTemplate`radial-gradient(circle 250px at ${glowX}px ${glowY}px, ${p.accent}08, transparent)`,
           }}
         />
 
@@ -229,34 +229,34 @@ const TiltCard = ({ p, delay }: { p: typeof projects[0]; delay: number }) => {
         <motion.div 
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-xl"
           style={{
-            border: useMotionTemplate`1px solid ${p.accent}60`,
+            border: useMotionTemplate`1px solid ${p.accent}40`,
             maskImage: useMotionTemplate`radial-gradient(circle 200px at ${glowX}px ${glowY}px, black, transparent)`,
             WebkitMaskImage: useMotionTemplate`radial-gradient(circle 200px at ${glowX}px ${glowY}px, black, transparent)`
           }}
         />
 
         {/* Top line */}
-        <div className="absolute top-0 left-0 right-0 h-0.5 z-10" style={{ background: p.accent, opacity: 0.5 }} />
+        <div className="absolute top-0 left-0 right-0 h-0.5 z-10" style={{ background: p.accent, opacity: 0.4 }} />
 
         <div className="relative z-20 flex flex-col h-full" style={{ transform: "translateZ(20px)" }}>
           {/* Tag */}
           <div className="flex items-center justify-between mb-4">
-            <div className="w-10 h-10 rounded-xl flex items-center justify-center text-lg" style={{ background: `${p.accent}12` }}>
+            <div className="w-10 h-10 rounded-xl flex items-center justify-center text-lg" style={{ background: `${p.accent}08` }}>
               {p.icon}
             </div>
-            <span className="text-xs font-medium px-2.5 py-1 rounded-md" style={{ color: p.accent, background: `${p.accent}10`, border: `1px solid ${p.accent}25` }}>
+            <span className="text-xs font-medium px-2.5 py-1 rounded-md" style={{ color: p.accent, background: `${p.accent}06`, border: `1px solid ${p.accent}15` }}>
               {p.tag}
             </span>
           </div>
 
-          <h3 className="text-white font-bold text-lg mb-1">{p.title}</h3>
-          <p className="text-slate-500 text-xs mb-3">{p.subtitle}</p>
-          <p className="text-slate-400 text-sm leading-relaxed mb-5">{p.description}</p>
+          <h3 className="text-slate-800 font-bold text-lg mb-1">{p.title}</h3>
+          <p className="text-slate-400 text-xs mb-3">{p.subtitle}</p>
+          <p className="text-slate-500 text-sm leading-relaxed mb-5">{p.description}</p>
 
           {/* Tech */}
           <div className="flex flex-wrap gap-1.5 mt-auto">
             {p.tech.map((t, ti) => (
-              <span key={ti} className="px-2.5 py-1 text-xs font-medium rounded-md text-slate-400" style={{ background: `${p.accent}08`, border: `1px solid ${p.accent}20` }}>
+              <span key={ti} className="px-2.5 py-1 text-xs font-medium rounded-md text-slate-500" style={{ background: `${p.accent}05`, border: `1px solid ${p.accent}12` }}>
                 {t}
               </span>
             ))}
@@ -272,7 +272,7 @@ export const Projects = () => {
   const others = projects.slice(1);
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden" style={{ background: '#070f1d' }}>
+    <section id="projects" className="py-24 relative overflow-hidden" style={{ background: '#f8fafc' }}>
       <div className="max-w-5xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -282,12 +282,12 @@ export const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="text-cyan-400 text-xs font-semibold tracking-widest uppercase mb-3 block">
+          <span className="text-blue-600 text-xs font-semibold tracking-widest uppercase mb-3 block">
             Portfolio
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-3">
             Featured{' '}
-            <span style={{ background: 'linear-gradient(135deg, #38bdf8, #06b6d4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#06b6d4]">
               Projects
             </span>
           </h2>
@@ -311,7 +311,7 @@ export const Projects = () => {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-center text-slate-600 text-sm mt-10"
+          className="text-center text-slate-400 text-sm mt-10"
         >
           More projects in the works 🚀
         </motion.p>

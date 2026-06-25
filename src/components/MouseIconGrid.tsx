@@ -65,17 +65,17 @@ export const MouseIconGrid = () => {
         
         // Scale up slightly and become fully opaque when mouse is near
         const scale = distance < 150 ? 1 + (150 - distance) / 300 : 1;
-        const opacity = distance < 250 ? Math.max(0.15, 1 - distance / 250) : 0.05;
+        const opacity = distance < 250 ? Math.max(0.12, 0.7 * (1 - distance / 250)) : 0.04;
         
         item.style.transform = `translate3d(0,0,0) rotate(${angle}deg) scale(${scale})`;
         item.style.opacity = opacity.toString();
         
         // Colorful gradient effect based on coordinates (like antigravity landing page)
         if (distance < 250) {
-           item.style.color = `hsl(${(x / window.innerWidth) * 360}, 80%, 60%)`;
-        } else {
-           item.style.color = '#38bdf8'; // Default cyan
-        }
+           item.style.color = `hsl(${(x / window.innerWidth) * 360}, 60%, 55%)`;
+         } else {
+            item.style.color = '#94a3b8'; // Default soft slate
+         }
       });
       animationFrameId = requestAnimationFrame(render);
     };
@@ -93,7 +93,7 @@ export const MouseIconGrid = () => {
   if (totalIcons === 0) return null;
 
   return (
-    <div ref={containerRef} className="fixed inset-0 pointer-events-none z-0 overflow-hidden" style={{ background: '#050b15' }}>
+    <div ref={containerRef} className="fixed inset-0 pointer-events-none z-0 overflow-hidden" style={{ background: '#ffffff' }}>
       {Array.from({ length: totalIcons }).map((_, i) => {
         const IconPath = icons[i % icons.length];
         return (

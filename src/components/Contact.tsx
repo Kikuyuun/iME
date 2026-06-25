@@ -48,18 +48,18 @@ export const Contact = () => {
   };
 
   const inputStyle = (name: string): React.CSSProperties => ({
-    background: focused === name ? 'rgba(59,130,246,0.06)' : 'rgba(15,23,42,0.8)',
-    border: `1px solid ${focused === name ? 'rgba(6,182,212,0.5)' : 'rgba(51,65,85,0.5)'}`,
+    background: focused === name ? 'rgba(59,130,246,0.03)' : '#f8fafc',
+    border: `1px solid ${focused === name ? 'rgba(59,130,246,0.3)' : 'rgba(226,232,240,0.8)'}`,
     transition: 'all 0.2s',
   });
 
   return (
-    <section id="contact" className="pt-12 pb-24 relative overflow-hidden" style={{ background: '#050b15' }}>
+    <section id="contact" className="pt-12 pb-24 relative overflow-hidden" style={{ background: '#f8fafc' }}>
       <div className="max-w-5xl mx-auto px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }} className="text-center mb-14">
-          <span className="text-cyan-400 text-xs font-semibold tracking-widest uppercase mb-3 block">Let's Connect</span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
-            Get In <span style={{ background: 'linear-gradient(135deg, #38bdf8, #06b6d4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Touch</span>
+          <span className="text-blue-600 text-xs font-semibold tracking-widest uppercase mb-3 block">Let's Connect</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-800">
+            Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#06b6d4]">Touch</span>
           </h2>
           <p className="text-slate-500 text-sm mt-3">Open to opportunities, collaborations, and new projects.</p>
         </motion.div>
@@ -71,13 +71,13 @@ export const Contact = () => {
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }} viewport={{ once: true }}
               whileHover={{ y: -4 }}
-              className="flex flex-col items-center gap-3 p-6 rounded-xl text-center relative overflow-hidden"
-              style={{ background: 'rgba(15,23,42,0.6)', border: `1px solid ${m.accent}30` }}
+              className="flex flex-col items-center gap-3 p-6 rounded-xl text-center relative overflow-hidden shadow-sm"
+              style={{ background: 'rgba(255,255,255,0.9)', border: `1px solid ${m.accent}15` }}
             >
-              <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: m.accent, opacity: 0.6 }} />
-              <div className="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style={{ background: `${m.accent}15` }}>{m.icon}</div>
+              <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: m.accent, opacity: 0.4 }} />
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center text-xl" style={{ background: `${m.accent}08` }}>{m.icon}</div>
               <div>
-                <div className="text-white text-sm font-semibold">{m.title}</div>
+                <div className="text-slate-700 text-sm font-semibold">{m.title}</div>
                 <div className="text-xs mt-1 break-all" style={{ color: m.accent }}>{m.value}</div>
               </div>
             </motion.a>
@@ -88,18 +88,18 @@ export const Contact = () => {
         <motion.div
           initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }} viewport={{ once: true }}
-          className="max-w-xl mx-auto rounded-xl overflow-hidden"
-          style={{ background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(51,65,85,0.5)' }}
+          className="max-w-xl mx-auto rounded-xl overflow-hidden shadow-sm"
+          style={{ background: 'rgba(255,255,255,0.95)', border: '1px solid rgba(226,232,240,0.8)' }}
         >
           {/* Terminal bar */}
           <div className="px-6 pt-5">
             <div className="flex items-center gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
-              <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
-              <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-              <span className="ml-2 text-slate-600 text-xs">message.tsx</span>
+              <div className="w-2.5 h-2.5 rounded-full bg-red-400/60" />
+              <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/60" />
+              <div className="w-2.5 h-2.5 rounded-full bg-green-400/60" />
+              <span className="ml-2 text-slate-400 text-xs">message.tsx</span>
             </div>
-            <div className="h-px bg-slate-700/40 mt-4" />
+            <div className="h-px bg-slate-100 mt-4" />
           </div>
 
           <form onSubmit={handleSubmit} className="p-6 space-y-4">
@@ -109,7 +109,7 @@ export const Contact = () => {
                 <input type="text" id="contact-name" name="name" value={form.name}
                   onChange={e => setForm(p => ({ ...p, name: e.target.value }))}
                   onFocus={() => setFocused('name')} onBlur={() => setFocused(null)}
-                  required className="w-full px-4 py-3 rounded-lg text-white text-sm placeholder-slate-600 focus:outline-none"
+                  required className="w-full px-4 py-3 rounded-lg text-slate-800 text-sm placeholder-slate-300 focus:outline-none"
                   style={inputStyle('name')} placeholder="Your name" />
               </div>
               <div>
@@ -117,7 +117,7 @@ export const Contact = () => {
                 <input type="email" id="contact-email" name="email" value={form.email}
                   onChange={e => setForm(p => ({ ...p, email: e.target.value }))}
                   onFocus={() => setFocused('email')} onBlur={() => setFocused(null)}
-                  required className="w-full px-4 py-3 rounded-lg text-white text-sm placeholder-slate-600 focus:outline-none"
+                  required className="w-full px-4 py-3 rounded-lg text-slate-800 text-sm placeholder-slate-300 focus:outline-none"
                   style={inputStyle('email')} placeholder="you@email.com" />
               </div>
             </div>
@@ -126,11 +126,11 @@ export const Contact = () => {
               <textarea id="contact-message" name="message" value={form.message}
                 onChange={e => setForm(p => ({ ...p, message: e.target.value }))}
                 onFocus={() => setFocused('message')} onBlur={() => setFocused(null)}
-                required rows={4} className="w-full px-4 py-3 rounded-lg text-white text-sm placeholder-slate-600 focus:outline-none resize-none"
+                required rows={4} className="w-full px-4 py-3 rounded-lg text-slate-800 text-sm placeholder-slate-300 focus:outline-none resize-none"
                 style={inputStyle('message')} placeholder="Tell me about your project..." />
             </div>
               <motion.button type="submit" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} disabled={isSubmitting}
-              className="w-full py-3 rounded-lg text-sm font-semibold text-white shadow-lg shadow-blue-500/20"
+              className="w-full py-3 rounded-lg text-sm font-semibold text-white shadow-md shadow-blue-500/15"
               style={{ background: 'linear-gradient(135deg, #3b82f6, #06b6d4)', opacity: isSubmitting ? 0.7 : 1 }}>
               {sent ? '✓ Sent!' : isSubmitting ? 'Sending...' : 'Send Message →'}
             </motion.button>

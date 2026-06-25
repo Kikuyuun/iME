@@ -114,7 +114,7 @@ const GitIcon = () => (
 );
 
 const UnityIcon = () => (
-  <svg className="w-5 h-5 text-slate-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg className="w-5 h-5 text-slate-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <polygon points="12 2 22 7.5 22 16.5 12 22 2 16.5 2 7.5" />
     <line x1="12" y1="22" x2="12" y2="12" />
     <line x1="2" y1="7.5" x2="12" y2="12" />
@@ -200,7 +200,7 @@ const categories: Category[] = [
       { name: 'VS Code', level: 'Advanced', color: '#007acc', icon: <VsCodeIcon /> },
       { name: 'Visual Studio', level: 'Proficient', color: '#5c2d91', icon: <VisualStudioIcon /> },
       { name: 'Git & GitHub', level: 'Proficient', color: '#f05032', icon: <GitIcon /> },
-      { name: 'Unity 3D', level: 'Familiar', color: '#ffffff', icon: <UnityIcon /> },
+      { name: 'Unity 3D', level: 'Familiar', color: '#475569', icon: <UnityIcon /> },
       { name: 'Laravel', level: 'Familiar', color: '#ff2d20', icon: <LaravelIcon /> },
     ],
   },
@@ -221,7 +221,7 @@ export const Skills = () => {
   const category = categories[activeCat];
 
   return (
-    <section id="skills" className="pt-24 pb-4 relative overflow-hidden" style={{ background: '#050b15' }}>
+    <section id="skills" className="pt-24 pb-4 relative overflow-hidden" style={{ background: '#ffffff' }}>
       <div className="max-w-5xl mx-auto px-6">
         {/* Header */}
         <motion.div
@@ -231,12 +231,12 @@ export const Skills = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="text-cyan-400 text-xs font-semibold tracking-widest uppercase mb-3 block">
+          <span className="text-blue-600 text-xs font-semibold tracking-widest uppercase mb-3 block">
             What I Work With
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-3">
             My{' '}
-            <span style={{ background: 'linear-gradient(135deg, #38bdf8, #06b6d4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#06b6d4]">
               Skills
             </span>
           </h2>
@@ -252,8 +252,8 @@ export const Skills = () => {
               key={i}
               onClick={() => setActiveCat(i)}
               className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 border backdrop-blur-md flex items-center gap-2 ${activeCat === i
-                ? 'bg-slate-800/80 border-cyan-500/50 text-white shadow-[0_0_15px_rgba(6,182,212,0.3)]'
-                : 'bg-slate-900/40 border-slate-700/50 text-slate-400 hover:text-slate-200 hover:border-slate-600'
+                ? 'bg-white border-blue-200 text-slate-800 shadow-md shadow-blue-100/50'
+                : 'bg-slate-50/80 border-slate-200 text-slate-500 hover:text-slate-700 hover:border-slate-300'
                 }`}
             >
               <span>{cat.icon}</span>
@@ -274,12 +274,12 @@ export const Skills = () => {
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
-            className="absolute inset-0 rounded-full border border-slate-700/30 border-dashed"
+            className="absolute inset-0 rounded-full border border-slate-200 border-dashed"
           />
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-            className="absolute inset-8 md:inset-10 rounded-full border border-slate-800/50"
+            className="absolute inset-8 md:inset-10 rounded-full border border-slate-100"
           />
 
           {/* Main Orbiting Container */}
@@ -314,27 +314,27 @@ export const Skills = () => {
                       transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
                       whileHover={{ scale: 1.1 }}
                     >
-                      <div className="flex items-center gap-2.5 md:gap-3 bg-slate-900/90 border border-slate-700 px-3 md:px-4 py-2 rounded-full shadow-[0_0_20px_rgba(0,0,0,0.4)] backdrop-blur-md whitespace-nowrap transition-all duration-300"
+                      <div className="flex items-center gap-2.5 md:gap-3 bg-white border border-slate-200 px-3 md:px-4 py-2 rounded-full shadow-md shadow-slate-100/80 backdrop-blur-md whitespace-nowrap transition-all duration-300"
                         onMouseEnter={(e) => {
                           e.currentTarget.style.borderColor = skill.color + '60';
-                          e.currentTarget.style.boxShadow = `0 0 20px ${skill.color}30`;
+                          e.currentTarget.style.boxShadow = `0 4px 20px ${skill.color}15`;
                         }}
                         onMouseLeave={(e) => {
-                          e.currentTarget.style.borderColor = 'rgba(51, 65, 85, 1)'; // border-slate-700
-                          e.currentTarget.style.boxShadow = '0 0 20px rgba(0,0,0,0.4)';
+                          e.currentTarget.style.borderColor = 'rgba(226, 232, 240, 1)'; // border-slate-200
+                          e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(241, 245, 249, 0.8)';
                         }}
                       >
                         {/* Icon */}
-                        <div className="w-7 h-7 md:w-9 md:h-9 rounded-full flex items-center justify-center bg-slate-800 shrink-0 border border-slate-700/50 group-hover:border-transparent transition-colors">
+                        <div className="w-7 h-7 md:w-9 md:h-9 rounded-full flex items-center justify-center bg-slate-50 shrink-0 border border-slate-100 group-hover:border-transparent transition-colors">
                           {skill.icon}
                         </div>
                         {/* Text */}
                         <div className="flex flex-col pr-1 md:pr-2">
-                          <span className="text-xs md:text-sm font-bold text-slate-200 group-hover:text-white transition-colors">{skill.name}</span>
+                          <span className="text-xs md:text-sm font-bold text-slate-700 group-hover:text-slate-900 transition-colors">{skill.name}</span>
                           <span className="text-[9px] md:text-[10px] font-bold tracking-widest uppercase mt-0.5"
                             style={{
-                              color: skill.level === 'Advanced' ? '#38bdf8' :
-                                skill.level === 'Proficient' ? '#34d399' : '#94a3b8'
+                              color: skill.level === 'Advanced' ? '#2563eb' :
+                                skill.level === 'Proficient' ? '#059669' : '#94a3b8'
                             }}>
                             {skill.level}
                           </span>
@@ -348,17 +348,17 @@ export const Skills = () => {
           </motion.div>
 
           {/* Center Category Info */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center bg-slate-900/80 border border-slate-700 w-20 h-20 md:w-28 md:h-28 rounded-full shadow-[0_0_40px_rgba(6,182,212,0.15)] z-10 backdrop-blur-md transition-all duration-500"
-            style={{ border: `1px solid ${category.accent}40`, boxShadow: `0 0 40px ${category.accent}20` }}>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center bg-white border border-slate-200 w-20 h-20 md:w-28 md:h-28 rounded-full shadow-lg shadow-slate-100/50 z-10 backdrop-blur-md transition-all duration-500"
+            style={{ border: `1px solid ${category.accent}25`, boxShadow: `0 4px 30px ${category.accent}10` }}>
             <div className="text-2xl md:text-3xl mb-0.5">{category.icon}</div>
-            <span className="text-[9px] md:text-[10px] font-bold text-center text-slate-200 px-2 leading-tight">{category.title}</span>
+            <span className="text-[9px] md:text-[10px] font-bold text-center text-slate-700 px-2 leading-tight">{category.title}</span>
           </div>
         </motion.div>
       </div>
 
       {/* Background aesthetic effects for the orbit */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[600px] md:h-[600px] rounded-full blur-[100px] pointer-events-none transition-colors duration-700"
-        style={{ background: `radial-gradient(circle, ${category.accent}15 0%, transparent 70%)` }} />
+        style={{ background: `radial-gradient(circle, ${category.accent}08 0%, transparent 70%)` }} />
     </section>
   );
 };

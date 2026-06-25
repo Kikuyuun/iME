@@ -45,8 +45,8 @@ export const SuggestionBox = () => {
   };
 
   const inputStyle = (name: string): React.CSSProperties => ({
-    background: focused === name ? 'rgba(59,130,246,0.06)' : 'rgba(15,23,42,0.8)',
-    border: `1px solid ${focused === name ? 'rgba(6,182,212,0.5)' : 'rgba(51,65,85,0.5)'}`,
+    background: focused === name ? 'rgba(59,130,246,0.03)' : '#f8fafc',
+    border: `1px solid ${focused === name ? 'rgba(59,130,246,0.3)' : 'rgba(226,232,240,0.8)'}`,
     transition: 'all 0.2s',
   });
 
@@ -59,17 +59,17 @@ export const SuggestionBox = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="mb-4 w-80 rounded-xl overflow-hidden shadow-2xl"
-            style={{ background: 'rgba(15,23,42,0.95)', border: '1px solid rgba(51,65,85,0.5)', backdropFilter: 'blur(10px)' }}
+            className="mb-4 w-80 rounded-xl overflow-hidden shadow-xl shadow-slate-200/50"
+            style={{ background: 'rgba(255,255,255,0.98)', border: '1px solid rgba(226,232,240,0.8)', backdropFilter: 'blur(10px)' }}
           >
-            <div className="px-5 py-4 border-b" style={{ borderColor: 'rgba(51,65,85,0.5)' }}>
+            <div className="px-5 py-4 border-b" style={{ borderColor: 'rgba(226,232,240,0.8)' }}>
               <div className="flex justify-between items-center">
-                <h3 className="text-white font-semibold flex items-center gap-2">
-                  <span className="text-cyan-400">💡</span> Suggestion Box
+                <h3 className="text-slate-800 font-semibold flex items-center gap-2">
+                  <span className="text-blue-500">💡</span> Suggestion Box
                 </h3>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-400 hover:text-slate-700 transition-colors"
                 >
                   ✕
                 </button>
@@ -81,7 +81,7 @@ export const SuggestionBox = () => {
               {sent ? (
                 <motion.div
                   initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                  className="py-8 text-center text-green-400 text-sm font-medium flex flex-col items-center gap-2"
+                  className="py-8 text-center text-emerald-600 text-sm font-medium flex flex-col items-center gap-2"
                 >
                   <span className="text-2xl">✨</span>
                   Thank you for your feedback!
@@ -96,7 +96,7 @@ export const SuggestionBox = () => {
                       onBlur={() => setFocused(null)}
                       required
                       rows={4}
-                      className="w-full px-3 py-2 rounded-lg text-white text-sm placeholder-slate-500 focus:outline-none resize-none"
+                      className="w-full px-3 py-2 rounded-lg text-slate-800 text-sm placeholder-slate-300 focus:outline-none resize-none"
                       style={inputStyle('suggestion')}
                       placeholder="What would you like to see here?"
                     />
@@ -106,8 +106,8 @@ export const SuggestionBox = () => {
                     disabled={isSubmitting}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full py-2.5 rounded-lg text-sm font-semibold text-white shadow-lg shadow-cyan-500/20"
-                    style={{ background: 'linear-gradient(135deg, #0ea5e9, #06b6d4)', opacity: isSubmitting ? 0.7 : 1 }}
+                    className="w-full py-2.5 rounded-lg text-sm font-semibold text-white shadow-md shadow-blue-500/15"
+                    style={{ background: 'linear-gradient(135deg, #3b82f6, #06b6d4)', opacity: isSubmitting ? 0.7 : 1 }}
                   >
                     {isSubmitting ? 'Sending...' : 'Submit Suggestion →'}
                   </motion.button>
@@ -122,10 +122,10 @@ export const SuggestionBox = () => {
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="w-14 h-14 rounded-full flex items-center justify-center shadow-xl shadow-cyan-500/20"
+        className="w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/15"
         style={{
-          background: 'linear-gradient(135deg, #0f172a, #1e293b)',
-          border: '1px solid rgba(6, 182, 212, 0.4)'
+          background: 'linear-gradient(135deg, #ffffff, #f1f5f9)',
+          border: '1px solid rgba(59, 130, 246, 0.2)'
         }}
       >
         <span className="text-2xl">{isOpen ? '✕' : '💡'}</span>

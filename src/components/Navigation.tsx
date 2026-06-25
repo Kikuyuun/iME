@@ -38,16 +38,16 @@ export const Navigation = () => {
 
   return (
     <motion.nav
-      initial={{ y: -60, opacity: 0, backgroundColor: 'rgba(5,11,21,0)', borderBottomColor: 'rgba(51,65,85,0)' }}
+      initial={{ y: -60, opacity: 0, backgroundColor: 'rgba(255,255,255,0.7)', borderBottomColor: 'rgba(226,232,240,0.3)' }}
       animate={Object.assign(
         {
           y: 0,
           opacity: 1,
-          backgroundColor: scrolled ? 'rgba(5,11,21,0.95)' : 'rgba(5,11,21,0)',
-          borderBottomColor: scrolled ? 'rgba(51,65,85,0.3)' : 'rgba(51,65,85,0)',
-          backdropFilter: scrolled ? 'blur(20px) saturate(1.2)' : 'blur(0px) saturate(1)',
+          backgroundColor: scrolled ? 'rgba(255,255,255,0.92)' : 'rgba(255,255,255,0.7)',
+          borderBottomColor: scrolled ? 'rgba(226,232,240,0.6)' : 'rgba(226,232,240,0.3)',
+          backdropFilter: scrolled ? 'blur(20px) saturate(1.2)' : 'blur(10px) saturate(1)',
         },
-        { WebkitBackdropFilter: scrolled ? 'blur(20px) saturate(1.2)' : 'blur(0px) saturate(1)' }
+        { WebkitBackdropFilter: scrolled ? 'blur(20px) saturate(1.2)' : 'blur(10px) saturate(1)' }
       )}
       transition={{ duration: 0.4, ease: "easeOut" }}
       className="fixed top-0 w-full z-50 border-b border-transparent"
@@ -58,8 +58,8 @@ export const Navigation = () => {
             <div className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-xs" style={{ background: 'linear-gradient(135deg, #3b82f6, #06b6d4)' }}>
               EJ
             </div>
-            <span className="font-semibold text-white hidden sm:block">
-              Eduard <span style={{ background: 'linear-gradient(135deg, #38bdf8, #06b6d4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>James</span>
+            <span className="font-semibold text-slate-800 hidden sm:block">
+              Eduard <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#06b6d4]">James</span>
             </span>
           </motion.button>
 
@@ -72,14 +72,14 @@ export const Navigation = () => {
                 transition={{ delay: 0.05 + i * 0.06 }}
                 onClick={() => scrollTo(item.id)}
                 className="relative px-4 py-2 rounded-lg text-sm font-medium"
-                style={{ color: activeSection === item.id ? '#38bdf8' : '#94a3b8' }}
+                style={{ color: activeSection === item.id ? '#2563eb' : '#64748b' }}
               >
                 {item.label}
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="nav-pill"
                     className="absolute inset-0 rounded-lg"
-                    style={{ background: 'rgba(56,189,248,0.08)', border: '1px solid rgba(56,189,248,0.2)' }}
+                    style={{ background: 'rgba(59,130,246,0.06)', border: '1px solid rgba(59,130,246,0.15)' }}
                     transition={{ type: 'spring', bounce: 0.2, duration: 0.4 }}
                   />
                 )}
@@ -89,7 +89,7 @@ export const Navigation = () => {
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => scrollTo('contact')}
-              className="ml-3 px-5 py-2 rounded-lg text-sm font-semibold text-white"
+              className="ml-3 px-5 py-2 rounded-lg text-sm font-semibold text-white shadow-md shadow-blue-500/20"
               style={{ background: 'linear-gradient(135deg, #3b82f6, #06b6d4)' }}
             >
               Hire Me
@@ -110,13 +110,13 @@ export const Navigation = () => {
         initial={false}
         animate={{ height: menuOpen ? 'auto' : 0, opacity: menuOpen ? 1 : 0 }}
         className="md:hidden overflow-hidden"
-        style={{ background: 'rgba(5,11,21,0.98)', borderTop: '1px solid rgba(51,65,85,0.2)' }}
+        style={{ background: 'rgba(255,255,255,0.98)', borderTop: '1px solid rgba(226,232,240,0.5)' }}
       >
         <div className="px-6 py-4 flex flex-col gap-1">
           {navItems.map((item) => (
             <button key={item.id} onClick={() => scrollTo(item.id)}
               className="text-left px-4 py-3 rounded-lg text-sm font-medium"
-              style={{ color: activeSection === item.id ? '#38bdf8' : '#94a3b8', background: activeSection === item.id ? 'rgba(56,189,248,0.06)' : 'transparent' }}
+              style={{ color: activeSection === item.id ? '#2563eb' : '#64748b', background: activeSection === item.id ? 'rgba(59,130,246,0.05)' : 'transparent' }}
             >{item.label}</button>
           ))}
           <button onClick={() => scrollTo('contact')} className="mt-2 py-3 rounded-lg text-sm font-semibold text-white" style={{ background: 'linear-gradient(135deg, #3b82f6, #06b6d4)' }}>Hire Me</button>
